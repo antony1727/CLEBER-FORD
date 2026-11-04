@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /divulgacao.html
+Disallow: /sistema
+
+Sitemap: https://cleber-ford.vercel.app/sitemap.xml

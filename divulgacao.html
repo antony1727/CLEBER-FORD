@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Central de Divulgação | Cleber Ford</title>
+  <meta name="description" content="Painel de divulgação da Cleber Ford: gere legendas e imagens prontas para Instagram, WhatsApp e Facebook em segundos.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#060d18">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,500;0,600;0,700;0,800;1,600;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/painel.css">
+</head>
+<body>
+  <svg class="svg-sprite" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="i-whatsapp" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1a8 8 0 0 1-2.4-1.5 9 9 0 0 1-1.6-2c-.2-.3 0-.5.1-.6l.5-.6c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.1c-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 22a10 10 0 0 1-5.1-1.4L3 22l1.4-3.8A10 10 0 1 1 12 22z"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></symbol>
+    <symbol id="i-share" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 10.5 6.8-4M8.6 13.5l6.8 4"/></symbol>
+    <symbol id="i-save" viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><path d="M17 21v-8H7v8M7 3v5h8"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6M10 11v6M14 11v6"/></symbol>
+    <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="m12 3 1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3z"/><path d="M19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9L19 15z"/></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></symbol>
+    <symbol id="i-bulb" viewBox="0 0 24 24"><path d="M9 18h6M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 11h18"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></symbol>
+    <symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.87l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.7 1.7 0 0 0-1.87-.34 1.7 1.7 0 0 0-1 1.55V21a2 2 0 1 1-4 0v-.09a1.7 1.7 0 0 0-1.11-1.55 1.7 1.7 0 0 0-1.87.34l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.7 1.7 0 0 0 .34-1.87 1.7 1.7 0 0 0-1.55-1H3a2 2 0 1 1 0-4h.09a1.7 1.7 0 0 0 1.55-1.11 1.7 1.7 0 0 0-.34-1.87l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.7 1.7 0 0 0 1.87.34H9a1.7 1.7 0 0 0 1-1.55V3a2 2 0 1 1 4 0v.09a1.7 1.7 0 0 0 1 1.55 1.7 1.7 0 0 0 1.87-.34l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.7 1.7 0 0 0-.34 1.87V9a1.7 1.7 0 0 0 1.55 1H21a2 2 0 1 1 0 4h-.09a1.7 1.7 0 0 0-1.55 1z"/></symbol>
+    <symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="m12 2.5 2.9 6 6.6.9-4.8 4.6 1.2 6.5-5.9-3.1-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9 2.9-6z"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol>
+  </svg>
+
+  <header class="app-header">
+    <div class="app-container app-header-inner">
+      <a class="app-brand" href="index.html">
+        <span class="app-brand-badge"><img src="assets/img/ford-logo.svg" alt="Ford"></span>
+        <span class="app-brand-text">
+          <strong>Cleber Ford</strong>
+          <small>Central de Divulgação</small>
+        </span>
+      </a>
+
+      <div class="app-header-actions">
+        <span class="save-state" id="save-state"><span class="save-dot"></span> Salvo automaticamente</span>
+        <a class="app-btn app-btn-ghost" href="index.html">
+          <svg class="ic"><use href="#i-external"/></svg> Ver site
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="app-main">
+    <!-- HERO DO PAINEL -->
+    <section class="app-hero">
+      <div class="app-container">
+        <div class="app-hero-inner">
+          <div class="app-hero-copy">
+            <span class="app-eyebrow"><span class="app-eyebrow-dot"></span> Painel da oficina</span>
+            <h1>Transforme cada serviço em <em>divulgação.</em></h1>
+            <p>Monte o post, gere a arte e copie a legenda em segundos. Tudo pronto para Instagram, Facebook e WhatsApp — sem precisar de designer.</p>
+          </div>
+
+          <div class="app-stats">
+            <div class="app-stat">
+              <strong id="stat-saved">0</strong>
+              <span>posts salvos</span>
+            </div>
+            <div class="app-stat">
+              <strong id="stat-generated">0</strong>
+              <span>artes geradas</span>
+            </div>
+            <div class="app-stat">
+              <strong>7</strong>
+              <span>ideias na semana</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="app-container">
+      <!-- ABAS -->
+      <nav class="app-tabs" role="tablist" aria-label="Seções da central">
+        <button class="app-tab is-active" id="tab-btn-gerador" role="tab" aria-selected="true" aria-controls="tab-gerador" data-tab="gerador">
+          <svg class="ic"><use href="#i-sparkles"/></svg> Gerador de posts
+        </button>
+        <button class="app-tab" id="tab-btn-historico" role="tab" aria-selected="false" aria-controls="tab-historico" data-tab="historico">
+          <svg class="ic"><use href="#i-save"/></svg> Histórico <span class="tab-count" id="history-count">0</span>
+        </button>
+        <button class="app-tab" id="tab-btn-ideias" role="tab" aria-selected="false" aria-controls="tab-ideias" data-tab="ideias">
+          <svg class="ic"><use href="#i-bulb"/></svg> Ideias de conteúdo
+        </button>
+      </nav>
+
+      <!-- ================= ABA GERADOR ================= -->
+      <section class="tab-panel is-active" id="tab-gerador" role="tabpanel" aria-labelledby="tab-btn-gerador">
+        <div class="workspace">
+          <!-- BRIEFING -->
+          <div class="briefing card">
+            <div class="card-head">
+              <div>
+                <span class="step-label">Passo 1</span>
+                <h2>Monte a publicação</h2>
+              </div>
+              <button class="link-btn" type="button" id="reset-form" title="Voltar aos valores iniciais">
+                <svg class="ic"><use href="#i-close"/></svg> Limpar
+              </button>
+            </div>
+
+            <form id="post-form" autocomplete="off">
+              <fieldset class="form-block">
+                <legend>Formato da arte</legend>
+                <div class="segmented" role="group" aria-label="Formato da arte">
+                  <label class="segment">
+                    <input type="radio" name="formato" value="feed" checked>
+                    <span><svg class="ic"><use href="#i-image"/></svg> Feed <small>1080 × 1080</small></span>
+                  </label>
+                  <label class="segment">
+                    <input type="radio" name="formato" value="story">
+                    <span><svg class="ic"><use href="#i-instagram"/></svg> Story <small>1080 × 1920</small></span>
+                  </label>
+                  <label class="segment">
+                    <input type="radio" name="formato" value="status">
+                    <span><svg class="ic"><use href="#i-whatsapp"/></svg> Status <small>1080 × 1920</small></span>
+                  </label>
+                </div>
+              </fieldset>
+
+              <fieldset class="form-block">
+                <legend>Objetivo do post</legend>
+                <div class="chips" role="group" aria-label="Objetivo do post">
+                  <label class="chip"><input type="radio" name="objetivo" value="servico" checked><span><svg class="ic"><use href="#i-target"/></svg> Divulgar serviço</span></label>
+                  <label class="chip"><input type="radio" name="objetivo" value="promocao"><span><svg class="ic"><use href="#i-sparkles"/></svg> Promoção</span></label>
+                  <label class="chip"><input type="radio" name="objetivo" value="dica"><span><svg class="ic"><use href="#i-bulb"/></svg> Dica técnica</span></label>
+                  <label class="chip"><input type="radio" name="objetivo" value="prova"><span><svg class="ic"><use href="#i-star"/></svg> Prova social</span></label>
+                  <label class="chip"><input type="radio" name="objetivo" value="revisao"><span><svg class="ic"><use href="#i-calendar"/></svg> Lembrete de revisão</span></label>
+                </div>
+              </fieldset>
+
+              <div class="field-grid">
+                <label class="app-field app-field--full">
+                  <span>Serviço em destaque</span>
+                  <select name="servico" id="servico">
+                    <option>Revisão Ford</option>
+                    <option>Diagnóstico eletrônico</option>
+                    <option>Motor e retífica</option>
+                    <option>Câmbio automático e PowerShift</option>
+                    <option>Freios e ABS</option>
+                    <option>Suspensão e direção</option>
+                    <option>Ar-condicionado</option>
+                    <option>Elétrica e módulos</option>
+                    <option>Serviço geral</option>
+                  </select>
+                </label>
+
+                <label class="app-field">
+                  <span>Modelo do Ford <small>(opcional)</small></span>
+                  <input type="text" name="modelo" id="modelo" placeholder="Ex.: Ranger, Focus, Ka...">
+                </label>
+
+                <label class="app-field">
+                  <span>Oferta ou condição <small>(opcional)</small></span>
+                  <input type="text" name="oferta" id="oferta" placeholder="Ex.: 10% off na revisão">
+                </label>
+              </div>
+
+              <fieldset class="form-block">
+                <legend>Tom da mensagem</legend>
+                <div class="segmented segmented--tone" role="group" aria-label="Tom da mensagem">
+                  <label class="segment">
+                    <input type="radio" name="tom" value="confiavel" checked>
+                    <span>Confiável</span>
+                  </label>
+                  <label class="segment">
+                    <input type="radio" name="tom" value="direto">
+                    <span>Direto</span>
+                  </label>
+                  <label class="segment">
+                    <input type="radio" name="tom" value="descontraido">
+                    <span>Descontraído</span>
+                  </label>
+                </div>
+              </fieldset>
+
+              <button class="app-btn app-btn-primary app-btn-lg app-btn-block" type="submit">
+                <svg class="ic"><use href="#i-sparkles"/></svg> Gerar post e arte
+              </button>
+            </form>
+
+            <details class="settings">
+              <summary><svg class="ic"><use href="#i-gear"/></svg> Dados da oficina <span>editar</span></summary>
+              <div class="settings-body">
+                <div class="field-grid">
+                  <label class="app-field">
+                    <span>Nome da oficina</span>
+                    <input type="text" id="cfg-name" data-setting="name" placeholder="Cleber Ford">
+                  </label>
+                  <label class="app-field">
+                    <span>WhatsApp exibido</span>
+                    <input type="text" id="cfg-phone" data-setting="phone" placeholder="(35) 3821-0992">
+                  </label>
+                  <label class="app-field">
+                    <span>Cidade / UF</span>
+                    <input type="text" id="cfg-city" data-setting="city" placeholder="Lavras – MG">
+                  </label>
+                  <label class="app-field">
+                    <span>Instagram <small>(opcional)</small></span>
+                    <input type="text" id="cfg-instagram" data-setting="instagram" placeholder="@seuinstagram">
+                  </label>
+                  <label class="app-field app-field--full">
+                    <span>Número do WhatsApp (só números, com 55)</span>
+                    <input type="text" id="cfg-wa" data-setting="wa" placeholder="553538210992">
+                  </label>
+                </div>
+                <div class="settings-actions">
+                  <button class="app-btn app-btn-soft app-btn-sm" type="button" id="apply-settings">Atualizar prévia</button>
+                  <button class="link-btn" type="button" id="restore-settings">Restaurar padrão</button>
+                </div>
+              </div>
+            </details>
+          </div>
+
+          <!-- PREVIEW -->
+          <div class="preview-col">
+            <div class="preview-card card">
+              <div class="card-head">
+                <div>
+                  <span class="step-label">Passo 2</span>
+                  <h2>Prévia e legenda</h2>
+                </div>
+                <span class="format-badge" id="format-badge">1080 × 1080</span>
+              </div>
+
+              <div class="canvas-shell" id="canvas-shell">
+                <canvas id="post-canvas" width="1080" height="1080" aria-label="Prévia da arte gerada"></canvas>
+              </div>
+
+              <div class="caption-block">
+                <div class="caption-head">
+                  <label for="caption">Legenda</label>
+                  <span id="char-count">0 / 2.200</span>
+                </div>
+                <textarea id="caption" rows="9" spellcheck="true"></textarea>
+                <p class="caption-hint"><svg class="ic"><use href="#i-bulb"/></svg> Pode editar a legenda antes de copiar. As hashtags já vêm incluídas.</p>
+              </div>
+
+              <div class="post-actions">
+                <button class="app-btn app-btn-primary" type="button" id="btn-copy">
+                  <svg class="ic"><use href="#i-copy"/></svg> Copiar legenda
+                </button>
+                <button class="app-btn app-btn-soft" type="button" id="btn-download">
+                  <svg class="ic"><use href="#i-download"/></svg> Baixar arte
+                </button>
+                <button class="app-btn app-btn-soft" type="button" id="btn-save">
+                  <svg class="ic"><use href="#i-save"/></svg> Salvar
+                </button>
+                <button class="app-btn app-btn-ghost-green" type="button" id="btn-whatsapp">
+                  <svg class="ic"><use href="#i-whatsapp"/></svg> WhatsApp
+                </button>
+              </div>
+
+              <p class="privacy-note">
+                <svg class="ic"><use href="#i-check"/></svg>
+                A arte é gerada no seu navegador. Nenhum dado é enviado para servidores.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= ABA HISTÓRICO ================= -->
+      <section class="tab-panel" id="tab-historico" role="tabpanel" aria-labelledby="tab-btn-historico" hidden>
+        <div class="panel-head">
+          <div>
+            <span class="step-label">Sua biblioteca</span>
+            <h2>Posts salvos</h2>
+            <p>As publicações ficam guardadas neste navegador. Baixe a arte e a legenda sempre que precisar.</p>
+          </div>
+          <button class="app-btn app-btn-primary" type="button" data-go-tab="gerador">
+            <svg class="ic"><use href="#i-sparkles"/></svg> Criar novo post
+          </button>
+        </div>
+
+        <div class="history-grid" id="history-grid"></div>
+
+        <div class="empty-state" id="history-empty">
+          <span class="empty-icon"><svg class="ic"><use href="#i-image"/></svg></span>
+          <h3>Nenhum post salvo ainda</h3>
+          <p>Gere sua primeira arte e clique em <strong>Salvar</strong> para encontrá-la aqui depois.</p>
+          <button class="app-btn app-btn-soft" type="button" data-go-tab="gerador">Ir para o gerador</button>
+        </div>
+      </section>
+
+      <!-- ================= ABA IDEIAS ================= -->
+      <section class="tab-panel" id="tab-ideias" role="tabpanel" aria-labelledby="tab-btn-ideias" hidden>
+        <div class="panel-head">
+          <div>
+            <span class="step-label">Planejamento</span>
+            <h2>Uma semana de conteúdo</h2>
+            <p>Não sabe o que postar? Use o plano abaixo: clique em uma ideia e ela já vem preenchida no gerador.</p>
+          </div>
+          <a class="app-btn app-btn-soft" href="index.html#servicos" target="_blank" rel="noopener">
+            Ver serviços do site <svg class="ic"><use href="#i-external"/></svg>
+          </a>
+        </div>
+
+        <div class="ideas-layout">
+          <div class="ideas-grid">
+            <article class="idea-card" data-idea='{"objetivo":"dica","servico":"Revisão Ford","modelo":"","oferta":"","tom":"confiavel"}'>
+              <span class="idea-day">Segunda</span>
+              <h3>Dica que evita prejuízo</h3>
+              <p>Ensine um cuidado simples de manutenção e posicione a oficina como especialista.</p>
+              <div class="idea-tags"><span>Dica técnica</span><span>Revisão</span></div>
+              <button class="idea-use" type="button">Usar esta ideia <svg class="ic"><use href="#i-arrow"/></svg></button>
+            </article>
+
+            <article class="idea-card" data-idea='{"objetivo":"servico","servico":"Diagnóstico eletrônico","modelo":"","oferta":"","tom":"confiavel"}'>
+              <span class="idea-day">Terça</span>
+              <h3>Serviço em destaque</h3>
+              <p>Apresente o diagnóstico eletrônico e mostre por que ele evita trocas desnecessárias.</p>
+              <div class="idea-tags"><span>Serviço</span><span>Diagnóstico</span></div>
+              <button class="idea-use" type="button">Usar esta ideia <svg class="ic"><use href="#i-arrow"/></svg></button>
+            </article>
+
+            <article class="idea-card" data-idea='{"objetivo":"prova","servico":"Serviço geral","modelo":"Focus","oferta":"","tom":"descontraido"}'>
+              <span class="idea-day">Quarta</span>
+              <h3>Antes e depois</h3>
+              <p>Publique a entrega de um carro com uma frase de orgulho pelo trabalho bem feito.</p>
+              <div class="idea-tags"><span>Prova social</span><span>Bastidores</span></div>
+              <button class="idea-use" type="button">Usar esta ideia <svg class="ic"><use href="#i-arrow"/></svg></button>
+            </article>
+
+            <article class="idea-card idea-card--accent" data-idea='{"objetivo":"promocao","servico":"Revisão Ford","modelo":"","oferta":"10% off na revisão agendada esta semana","tom":"direto"}'>
+              <span class="idea-day">Quinta</span>
+              <h3>Oferta da semana</h3>
+              <p>Uma condição especial com prazo curto para gerar movimento nos próximos dias.</p>
+              <div class="idea-tags"><span>Promoção</span><span>Conversão</span></div>
+              <button class="idea-use" type="button">Usar esta ideia <svg class="ic"><use href="#i-arrow"/></svg></button>
+            </article>
+
+            <article class="idea-card" data-idea='{"objetivo":"servico","servico":"Câmbio automático e PowerShift","modelo":"","oferta":"","tom":"direto"}'>
+              <span class="idea-day">Sexta</span>
+              <h3>Dor real do cliente</h3>
+              <p>Fale sobre trancos no câmbio e mostre que o diagnóstico correto resolve.</p>
+              <div class="idea-tags"><span>Serviço</span><span>Câmbio</span></div>
+              <button class="idea-use" type="button">Usar esta ideia <svg class="ic"><use href="#i-arrow"/></svg></button>
+            </article>
+
+            <article class="idea-card" data-idea='{"objetivo":"revisao","servico":"Revisão Ford","modelo":"","oferta":"","tom":"confiavel"}'>
+              <span class="idea-day">Sábado</span>
+              <h3>Lembrete de revisão</h3>
+              <p>Reforce a importância da revisão preventiva antes de pegar a estrada.</p>
+              <div class="idea-tags"><span>Revisão</span><span>Segurança</span></div>
+              <button class="idea-use" type="button">Usar esta ideia <svg class="ic"><use href="#i-arrow"/></svg></button>
+            </article>
+
+            <article class="idea-card" data-idea='{"objetivo":"dica","servico":"Suspensão e direção","modelo":"","oferta":"","tom":"descontraido"}'>
+              <span class="idea-day">Domingo</span>
+              <h3>Dica leve de domingo</h3>
+              <p>Um conteúdo rápido e descontraído para manter a marca presente no feed.</p>
+              <div class="idea-tags"><span>Dica</span><span>Engajamento</span></div>
+              <button class="idea-use" type="button">Usar esta ideia <svg class="ic"><use href="#i-arrow"/></svg></button>
+            </article>
+          </div>
+
+          <aside class="tips-card">
+            <h3><svg class="ic"><use href="#i-bulb"/></svg> Dicas para vender mais</h3>
+            <ul class="tips-list">
+              <li><strong>Frequência:</strong> 3 a 4 posts por semana já mantêm a oficina presente. Use stories todos os dias.</li>
+              <li><strong>Mostre o processo:</strong> fotos reais da oficina e do carro pronto geram muito mais confiança que imagens genéricas.</li>
+              <li><strong>Sempre tenha CTA:</strong> termine toda legenda com “chame no WhatsApp” e o número.</li>
+              <li><strong>Prova social:</strong> peça avaliação no Google após a entrega e transforme em post.</li>
+              <li><strong>Destaques:</strong> salve os posts de serviços nos destaques do Instagram (Revisão, Câmbio, Freios...).</li>
+              <li><strong>Responda rápido:</strong> quem responde no WhatsApp em minutos fecha mais serviço.</li>
+            </ul>
+            <div class="tips-cta">
+              <span>Precisa de ajuda para gravar fotos e vídeos?</span>
+              <strong>Use o celular na horizontal e boa luz.</strong>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="app-footer">
+    <div class="app-container app-footer-inner">
+      <p>Cleber Ford · Central de Divulgação — ferramenta interna da oficina.</p>
+      <a href="index.html">Ir para o site <svg class="ic"><use href="#i-arrow"/></svg></a>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/logo-data.js"></script>
+  <script src="js/painel.js"></script>
+</body>
+</html>

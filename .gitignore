@@ -1,0 +1,12 @@
+# Vercel
+.vercel
+
+# Dependências (caso o projeto passe a usar build)
+node_modules/
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# Logs e temporários
+*.log

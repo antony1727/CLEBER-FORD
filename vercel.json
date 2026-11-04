@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/sistema",
+      "destination": "/divulgacao.html",
+      "permanent": false
+    }
+  ]
+}
