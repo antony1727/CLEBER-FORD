@@ -10,7 +10,7 @@ Projeto estático em HTML, CSS e JavaScript puro — não precisa de banco de da
 ### Site institucional (`index.html`)
 - Hero com identidade Ford, chamada para agendamento e avaliação
 - Faixa com os modelos Ford atendidos
-- 8 serviços + cartão de contato
+- 8 serviços + cartão de contato, cada um com página individual em `servicos/`
 - Seção “A oficina” com fotos e diferenciais
 - Processo de atendimento em 4 etapas
 - Banner de conversão
@@ -20,7 +20,11 @@ Projeto estático em HTML, CSS e JavaScript puro — não precisa de banco de da
 - Mapa integrado, horários, endereço, telefone e WhatsApp
 - Botão flutuante de WhatsApp
 - Layout responsivo (desktop, tablet e celular)
-- SEO: title, description, Open Graph, JSON-LD (AutoRepair) e sitemap
+- SEO: title, description, Open Graph, JSON-LD (AutoRepair e Service), canonical e sitemap
+- Páginas jurídicas: `politica-de-privacidade.html` e `termos-de-uso.html`
+- Página `404.html` personalizada
+- Imagens em WebP com fallback JPG via `<picture>`
+- Headers de segurança e cache em `vercel.json`
 - Acessibilidade: skip link, foco visível, menu por teclado (ESC), textos alternativos
 
 ### Central de Divulgação (`divulgacao.html`)
@@ -30,7 +34,9 @@ Projeto estático em HTML, CSS e JavaScript puro — não precisa de banco de da
 - Central publicada: https://cleber-ford.vercel.app/sistema
 - Atalho direto: https://cleber-ford.vercel.app/divulgacao.html
 
-O arquivo `vercel.json` cria o atalho `/sistema` para a Central. Ao publicar em um domínio próprio, troque esses links no README e nos demais lugares indicados na seção de personalização.
+O arquivo `vercel.json` cria o atalho `/sistema` para a Central. O acesso é protegido por **HTTP Basic Auth** via `middleware.js`, usando as variáveis de ambiente `CENTRAL_USER` e `CENTRAL_PASSWORD` configuradas na Vercel. Sem essas variáveis, a Central responde `503` e não fica pública.
+
+Ao publicar em um domínio próprio, troque os links no README e nos demais lugares indicados na seção de personalização.
 
 Ferramenta interna para o dono da oficina divulgar os serviços sem depender de designer:
 - **Gerador de posts** com 5 objetivos: serviço, promoção, dica, prova social e lembrete de revisão
@@ -70,16 +76,23 @@ Ou, no VS Code, use a extensão **Live Server**.
 ## 3. Estrutura de arquivos
 
 ```
-├── index.html              → site institucional
-├── divulgacao.html         → central de divulgação (ferramenta interna)
+├── index.html                  → site institucional
+├── divulgacao.html             → central de divulgação (ferramenta interna)
+├── politica-de-privacidade.html
+├── termos-de-uso.html
+├── 404.html                    → página de erro personalizada
+├── servicos/                   → 8 páginas individuais de serviço
 ├── css/
-│   ├── site.css            → estilos do site
-│   └── painel.css          → estilos do painel
+│   ├── site.css                → estilos do site
+│   ├── paginas.css             → estilos das páginas internas, jurídicas e 404
+│   └── painel.css              → estilos do painel
 ├── js/
-│   ├── site.js             → menu, FAQ, formulário e configuração do WhatsApp
-│   ├── painel.js           → gerador de legendas e artes
-│   └── logo-data.js        → logo Ford em base64 (usada no canvas)
-├── assets/img/             → fotos, logo, favicon e imagem de compartilhamento
+│   ├── site.js                 → menu, FAQ, formulário e configuração do WhatsApp
+│   ├── painel.js               → gerador de legendas e artes
+│   └── logo-data.js            → logo Ford em base64 (usada no canvas)
+├── assets/img/                 → fotos (JPG + WebP), logo, favicon e OG image
+├── middleware.js               → Basic Auth da Central de Divulgação
+├── vercel.json                 → atalho /sistema, headers e cache
 ├── robots.txt
 └── sitemap.xml
 ```
@@ -92,10 +105,11 @@ Ou, no VS Code, use a extensão **Live Server**.
 |---|---|
 | Nome | Cleber Ford |
 | Endereço | R. Expedicionário Joaquim Borges, 105 – Belizandra, Lavras – MG, 37209-030 |
-| Telefone / WhatsApp | (35) 3821-0992 |
+| Telefone fixo | (35) 3821-0992 |
+| WhatsApp | (35) 9219-5691 |
 | Horário | Segunda a sexta, das 8h às 18h. Sábado e domingo: fechado |
 | Atendimento | Linha Ford e veículos similares |
-| Avaliação | Nota 4,6 no Google, com dezenas de avaliações |
+| Avaliação | Nota 4,6 no Google |
 | Site publicado | https://cleber-ford.vercel.app |
 
 Não há e-mail, Instagram ou Facebook confirmados — por isso o site não exibe esses canais.
@@ -104,21 +118,22 @@ Não há e-mail, Instagram ou Facebook confirmados — por isso o site não exib
 O número fica centralizado em `js/site.js`:
 
 ```js
-const WHATSAPP_NUMBER = "553538210992"; // 55 + DDD + número, só dígitos
+const WHATSAPP_NUMBER = "553592195691"; // 55 + DDD + número, só dígitos
 ```
 
-Os links `wa.me` e `tel:` do `index.html` também usam `553538210992` / `+553538210992`.
-Se o número deixar de ter WhatsApp, troque os links `https://wa.me/...` por `tel:+553538210992` e ajuste os botões de chamada.
+Os links `wa.me` usam `553592195691`. Os links `tel:` continuam usando o telefone fixo `+553538210992`.
+Se o WhatsApp mudar, atualize `WHATSAPP_NUMBER`, os links `https://wa.me/...` e o campo `wa` da Central de Divulgação.
 
 ### 4.2 Se mudar algum dado
-Busque e substitua em `index.html`:
+Busque e substitua em `index.html`, nas páginas de `servicos/` e nas páginas jurídicas:
 
 | O que trocar | Onde aparece |
 |---|---|
 | `R. Expedicionário Joaquim Borges, 105 – Belizandra` | contato, rodapé, JSON-LD, links do mapa |
 | `Lavras – MG, 37209-030` | contato, rodapé, JSON-LD |
 | `Seg a sex, 8h às 18h · Sáb e dom, fechado` | topo, contato, rodapé, JSON-LD |
-| `(35) 3821-0992` / `+553538210992` | topo, botões, contato, rodapé, JSON-LD |
+| `(35) 3821-0992` / `+553538210992` | telefone fixo: topo, contato, rodapé, JSON-LD |
+| `(35) 9219-5691` / `553592195691` | WhatsApp: botões, contato, rodapé e links `wa.me` |
 | `https://www.google.com/maps/...` | links “Ver no mapa”, “Traçar rota” e iframe |
 
 > O iframe do mapa usa o endereço dentro da URL (`q=R.%20Expedicion...`). Atualize também esse trecho, ou troque a URL pelo embed oficial do Google Maps da oficina.
@@ -134,20 +149,21 @@ Ao configurar um domínio próprio, troque `cleber-ford.vercel.app` por ele ness
 ### 4.4 Fotos
 As imagens atuais são de banco gratuito (Unsplash) e servem como demonstração.
 Substitua por fotos reais da oficina, da equipe e dos carros — isso aumenta muito a confiança e a conversão.
-Mantenha os mesmos nomes de arquivo ou atualize os caminhos no HTML.
+
+O site usa `<picture>` com versão **WebP** e fallback **JPG**. Ao trocar uma foto, mantenha os dois formatos com o mesmo nome-base (por exemplo, `oficina.jpg` e `oficina.webp`) ou atualize os caminhos no HTML. A `og-image.jpg` continua em JPG por compatibilidade com as redes sociais.
 
 ### 4.5 Avaliações
 A seção de avaliações mostra apenas a **nota real 4,6 no Google** e leva para os comentários.
 Não foram publicados depoimentos inventados. Se quiser incluir comentários de clientes, use avaliações reais e identificadas (Google, WhatsApp ou autorização do cliente).
 
 ### 4.6 Central de Divulgação
-A Central já vem com os dados corretos: telefone `(35) 3821-0992`, WhatsApp `553538210992` e cidade `Lavras – MG`.
+A Central já vem com os dados corretos: WhatsApp `(35) 9219-5691` / `553592195691` e cidade `Lavras – MG`. O telefone fixo `(35) 3821-0992` continua sendo usado nos links de ligação do site.
 O campo Instagram ficou **vazio** porque não há perfil confirmado — preencha apenas se a oficina tiver um.
 
 Esses dados ficam salvos no navegador daquele computador/celular. Se alguma configuração antiga aparecer, clique em **Dados da oficina → Restaurar padrão**.
 O histórico também é local (últimos 8 posts), no armazenamento do navegador.
 
-> A central não tem login. Ela está com `noindex`, mas se o site for publicado publicamente, qualquer pessoa que souber a URL consegue acessar. Se quiser restringir, proteja o arquivo/pasta com senha na hospedagem ou mantenha a ferramenta apenas no computador da oficina.
+> A Central usa `noindex` e **Basic Auth**. As credenciais ficam apenas nas variáveis de ambiente da Vercel (`CENTRAL_USER` e `CENTRAL_PASSWORD`), nunca no repositório. Para trocar a senha, atualize a variável e faça um novo deploy. O navegador pode manter a sessão até ser fechado; para sair imediatamente, feche o navegador ou use uma janela anônima.
 
 ---
 
@@ -181,11 +197,24 @@ O projeto é 100% estático e está publicado no Vercel:
 - Site: https://cleber-ford.vercel.app
 - Central: https://cleber-ford.vercel.app/sistema
 
-Para republicar:
+O projeto está ligado ao repositório GitHub `antony1727/CLEBER-FORD`, branch `main`. Um push nessa branch dispara o deploy automático de produção na Vercel.
+
+Para publicar manualmente (quando necessário):
 
 ```bash
 vercel deploy --prod --yes --project cleber-ford
 ```
+
+### Variáveis de ambiente da Central
+
+Configure uma única vez no projeto da Vercel:
+
+```bash
+vercel env add CENTRAL_USER production
+vercel env add CENTRAL_PASSWORD production
+```
+
+Também é possível definir em **Vercel → Project Settings → Environment Variables**. Depois de alterar, faça um novo deploy para aplicar.
 
 ### Outras opções
 
@@ -223,6 +252,13 @@ Envie o conteúdo da pasta para `public_html` via FTP/gerenciador de arquivos.
 - [x] Endereço, horários e cidade conferidos (Lavras – MG)
 - [x] Domínio atualizado em canonical, Open Graph, JSON-LD, robots e sitemap
 - [x] Avaliações reais (nota 4,6 no Google) e ausência de depoimentos inventados
+- [x] Páginas individuais dos 8 serviços
+- [x] Política de Privacidade e Termos de Uso
+- [x] Página 404 personalizada
+- [x] Imagens em WebP com fallback JPG
+- [x] Headers de segurança e cache
+- [x] Central de Divulgação protegida por Basic Auth
+- [x] Deploy automático a partir do GitHub
 - [ ] Fotos reais da oficina
 - [ ] Logo Ford usado com autorização
 - [ ] Testado no celular (menu, formulário, WhatsApp)

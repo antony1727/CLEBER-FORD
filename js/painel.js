@@ -11,14 +11,14 @@
      ---------------------------------------------------------- */
   const DEFAULT_SETTINGS = {
     name: "Cleber Ford",
-    phone: "(35) 3821-0992",
+    phone: "(35) 9219-5691",
     city: "Lavras – MG",
     instagram: "",
-    wa: "553538210992",
+    wa: "553592195691",
   };
 
   const STORAGE = {
-    settings: "cf_settings_v2",
+    settings: "cf_settings_v3",
     history: "cf_history_v1",
     counter: "cf_generated_v1",
   };
@@ -40,7 +40,7 @@
     },
     "Motor e retífica": {
       headline: "Motor e retífica",
-      copy: "Reparo de motor com procedimentos, torques e tolerâncias conforme a especificação Ford. Serviço técnico, testado e com garantia.",
+      copy: "Reparo de motor com procedimentos, torques e tolerâncias conforme a especificação Ford. Serviço técnico, testado e com condições de garantia informadas no orçamento.",
       tip: "Fumaça, consumo de óleo ou perda de potência merecem avaliação. Quanto antes o motor for diagnosticado, menor o custo do reparo.",
       problem: "falhas no motor",
       tag: "#MotorFord",
@@ -83,7 +83,7 @@
     "Serviço geral": {
       headline: "Cuidado completo",
       copy: "Conte o que está acontecendo com seu Ford. A gente avalia, explica o problema e indica o reparo certo, com orçamento aprovado antes.",
-      tip: "Sintomas parecidos podem ter causas diferentes. Descrever o comportamento do carro ajuda a oficina a acertar o diagnóstico mais rápido.",
+      tip: "Sintomas parecidos podem ter causas diferentes. Descrever o comportamento do carro ajuda a oficina a acertar o diagnóstico com mais precisão.",
       problem: "uma necessidade geral",
       tag: "#OficinaFord",
     },
@@ -99,7 +99,7 @@
 
   const TONE_LINES = {
     confiavel:
-      "Aqui você recebe diagnóstico honesto, orçamento transparente e garantia por escrito.",
+      "Aqui você recebe diagnóstico honesto, orçamento transparente e condições de garantia informadas antes da execução.",
     direto:
       "Diagnóstico, orçamento aprovado e serviço executado. Sem enrolação e sem surpresa.",
     descontraido:
@@ -271,7 +271,7 @@
           "",
           model
             ? `Desta vez foi o ${model}, que chegou com ${service.problem} e saiu com o serviço concluído e testado em rodagem.`
-            : "Serviço concluído, testado em rodagem e entregue com garantia. É assim que cuidamos de cada Ford.",
+            : "Serviço concluído, testado e entregue com as condições de garantia informadas no orçamento. É assim que cuidamos de cada Ford.",
           "",
           tone,
           "",
@@ -653,7 +653,7 @@
   }
 
   function drawFeaturesRow(W, y) {
-    const items = ["Diagnóstico preciso", "Peças de procedência", "Garantia por escrito"];
+    const items = ["Diagnóstico preciso", "Peças de procedência", "Garantia no orçamento"];
     const margin = 64;
     const colWidth = (W - margin * 2) / 3;
     items.forEach((item, i) => {
@@ -667,7 +667,7 @@
   }
 
   function drawFeaturesColumn(x, y) {
-    const items = ["Diagnóstico preciso", "Peças de procedência", "Garantia por escrito"];
+    const items = ["Diagnóstico preciso", "Peças de procedência", "Garantia no orçamento"];
     items.forEach((item, i) => {
       drawCheckDot(x, y + i * 66, 30);
       setFont(500, 27, "Inter");
@@ -882,7 +882,7 @@
       case "dica":
         return service.tip;
       case "prova":
-        return "Serviço concluído, testado em rodagem e entregue com garantia. É assim que cuidamos de cada Ford.";
+        return "Serviço concluído, testado e entregue com as condições de garantia informadas no orçamento. É assim que cuidamos de cada Ford.";
       case "revisao":
         return "Checklist completo, troca de óleo e filtros, freios, suspensão, fluidos e leitura eletrônica. Segurança para você e para o seu Ford.";
       case "promocao":
